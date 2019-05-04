@@ -123,6 +123,12 @@ where
     }
 }
 
+impl<K, V> Crud<K, V> for InMemoryStorage<K, V>
+where
+    K: Hash + Eq,
+    V: Entity<K>
+{}
+
 impl<K, V> From<&V> for InMemoryStorage<K, V>
 where
     K: Hash + Eq,
@@ -136,9 +142,9 @@ where
 }
 
 impl<K, V> From<&Vec<V>> for InMemoryStorage<K, V>
-    where
-        K: Hash + Eq,
-        V: Entity<K>
+where
+    K: Hash + Eq,
+    V: Entity<K>
 {
     fn from(values: &Vec<V>) -> Self {
         let mut result = Self::new();

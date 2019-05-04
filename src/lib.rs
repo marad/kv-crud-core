@@ -49,6 +49,10 @@ trait Delete<I, E: Entity<I>> {
     fn remove(&mut self, entity: &E) -> Result<(), Self::Error>;
 }
 
+trait Crud<I, E: Entity<I>>: Create<I, E> + Read<I, E> + ReadWithPaginationAndSort<I, E> + Update<I, E> + Delete<I, E> {
+
+}
+
 /// Used for result pagination.
 pub struct Page {
     /// Page number (starting from 0)
