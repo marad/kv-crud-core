@@ -36,29 +36,29 @@ pub trait ReadWithPaginationAndSort<I, E: Entity<I>> {
 
 /// Represents the ability to update the entity.
 /// This trait is used by custom storage implementations.
-trait Update<I, E: Entity<I>> {
+pub trait Update<I, E: Entity<I>> {
     type Error;
     fn update(&mut self, entity: &E) -> Result<(), Self::Error>;
 }
 
 /// Represents the ability to remove the entity from the storage.
 /// This trait is used by custom storage implementations.
-trait Delete<I, E: Entity<I>> {
+pub trait Delete<I, E: Entity<I>> {
     type Error;
     fn remove_by_id(&mut self, id: &I) -> Result<(), Self::Error>;
     fn remove(&mut self, entity: &E) -> Result<(), Self::Error>;
 }
 
-trait Crud<I, E: Entity<I>>: Create<I, E> + Read<I, E> + ReadWithPaginationAndSort<I, E> + Update<I, E> + Delete<I, E> {
+pub trait Crud<I, E: Entity<I>>: Create<I, E> + Read<I, E> + ReadWithPaginationAndSort<I, E> + Update<I, E> + Delete<I, E> {
 
 }
 
 /// Used for result pagination.
 pub struct Page {
     /// Page number (starting from 0)
-    number: u32,
+    pub number: u32,
     /// Results per page
-    size: u32,
+    pub size: u32,
 }
 
 impl Page {

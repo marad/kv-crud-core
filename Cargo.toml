@@ -5,4 +5,4 @@ authors = ["Marcin Radoszewski <marcin.radoszewski@allegro.pl>"]
 edition = "2018"
 
 [dependencies]
-failure = "0.1.5"
+failure = "0.1"
