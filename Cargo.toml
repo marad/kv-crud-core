@@ -1,0 +1,8 @@
+[package]
+name = "rust-crud"
+version = "0.1.0"
+authors = ["Marcin Radoszewski <marcin.radoszewski@allegro.pl>"]
+edition = "2018"
+
+[dependencies]
+failure = "0.1.5"
