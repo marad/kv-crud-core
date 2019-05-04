@@ -125,8 +125,8 @@ where
 
 impl<K, V> Crud<K, V> for InMemoryStorage<K, V>
 where
-    K: Hash + Eq,
-    V: Entity<K>
+    K: Hash + Eq + ToString,
+    V: Entity<K> + Ord,
 {}
 
 impl<K, V> From<&V> for InMemoryStorage<K, V>
