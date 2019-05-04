@@ -1,5 +1,5 @@
 [package]
-name = "rust-crud"
+name = "kv-crud-core"
 version = "0.1.0"
 authors = ["Marcin Radoszewski <marcin.radoszewski@allegro.pl>"]
 edition = "2018"
