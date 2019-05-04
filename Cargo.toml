@@ -3,5 +3,10 @@ name = "kv-crud-core"
 version = "0.1.0"
 authors = ["Marcin Radoszewski <marcin.radoszewski@allegro.pl>"]
 edition = "2018"
+repository = "https://github.com/marad/kv-crud-core"
+documentation = ""
+description = "Core abstractions for multiple kv-stores"
+keywords = ["key", "value", "store", "abstraction"]
+license = "MIT"
 
 [dependencies]
