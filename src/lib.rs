@@ -1,9 +1,4 @@
-mod in_memory;
-
 use std::fmt::Debug;
-
-#[macro_use]
-extern crate failure;
 
 /// Represents an entity that can be stored in the system.
 /// You have to implement this trait for your custom type to be able to store it.
