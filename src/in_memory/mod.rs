@@ -31,20 +31,6 @@ where
     pub fn new() -> Self {
         Self { db: HashMap::new() }
     }
-
-    /// Creates new in-memory storage from given hash map
-    pub fn from_map(db: HashMap<K, V>) -> Self {
-        Self { db }
-    }
-
-    /// Creates new in-memory storage from collection of entities
-    pub fn from_entities(entities: &[V]) -> Self {
-        let mut result = Self::new();
-        for entity in entities {
-            result.save(entity);
-        }
-        result
-    }
 }
 
 impl<K, V> Create<K, V> for InMemoryStorage<K, V>
@@ -70,7 +56,7 @@ where
         match self.db.get(id) {
             Some(value) => Ok(value.clone()),
             None => {
-                let id: String = id.clone().to_string();
+                let id: String = id.to_string();
                 Err(EntityNotFound { entity_id: id })
             }
         }
@@ -137,7 +123,6 @@ where
     }
 }
 
-
 impl<K, V> From<&V> for InMemoryStorage<K, V>
 where
     K: Hash + Eq,
@@ -145,7 +130,21 @@ where
 {
     fn from(v: &V) -> Self {
         let mut result = Self::new();
-        result.save(v);
+        result.save(v).unwrap();
+        result
+    }
+}
+
+impl<K, V> From<&Vec<V>> for InMemoryStorage<K, V>
+    where
+        K: Hash + Eq,
+        V: Entity<K>
+{
+    fn from(values: &Vec<V>) -> Self {
+        let mut result = Self::new();
+        for v in values {
+            result.save(v).unwrap();
+        }
         result
     }
 }

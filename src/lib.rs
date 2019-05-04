@@ -59,12 +59,12 @@ pub struct Page {
 
 impl Page {
     /// Creates new page
-    fn new(number: u32, size: u32) -> Self {
+    pub fn new(number: u32, size: u32) -> Self {
         Self { number, size }
     }
 
     /// Calculates the offset for given page
-    fn offset(&self) -> u32 {
+    pub fn offset(&self) -> u32 {
         self.number * self.size
     }
 }

@@ -30,7 +30,7 @@ fn should_find_by_id() {
     // given
     let data = MyData { id: 42, data: 42 };
     let mut storage =
-        InMemoryStorage::from_entities(&vec![data.clone()]);
+        InMemoryStorage::from(&vec![data.clone()]);
 
     // when
     let result = storage.find_by_id(&42u32).unwrap();
@@ -57,11 +57,12 @@ fn should_return_not_found() {
 #[test]
 fn should_find_and_paginate() {
     // given
-    let mut storage = InMemoryStorage::from_entities(&vec![
-            MyData { id: 1, data: 42 },
-            MyData { id: 2, data: 42 },
-            MyData { id: 3, data: 42 },
-    ]);
+    let data = vec![
+        MyData { id: 1, data: 42 },
+        MyData { id: 2, data: 42 },
+        MyData { id: 3, data: 42 },
+    ];
+    let mut storage = InMemoryStorage::from(&data);
 
     // when
     let result = dbg!(storage
@@ -77,7 +78,7 @@ fn should_find_and_paginate() {
 fn should_update_entity() {
     // given
     let mut storage: InMemoryStorage<u32, MyData> =
-        InMemoryStorage::from_entities(&vec![MyData { id: 1, data: 42 }]);
+        InMemoryStorage::from(&vec![MyData { id: 1, data: 42 }]);
 
     let updated = MyData { id: 1, data: 24 };
 
