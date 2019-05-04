@@ -1,12 +1,12 @@
 [package]
 name = "kv-crud-core"
 version = "0.1.0"
-authors = ["Marcin Radoszewski <marcin.radoszewski@allegro.pl>"]
+authors = ["Marcin Radoszewski <moriturius@gmail.com>"]
 edition = "2018"
 repository = "https://github.com/marad/kv-crud-core"
 documentation = "https://docs.rs/kv-crud-core/latest/kv_crud_core/"
 description = "Core abstractions for multiple kv-stores"
-keywords = ["key", "value", "store", "abstraction"]
+keywords = ["key", "value", "crud", "store", "abstraction"]
 license = "MIT"
 
 [dependencies]
