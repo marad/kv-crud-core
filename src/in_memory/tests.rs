@@ -29,7 +29,7 @@ fn should_save_entity_in_storage() {
 fn should_find_by_id() {
     // given
     let data = MyData { id: 42, data: 42 };
-    let mut storage =
+    let storage =
         InMemoryStorage::from(&vec![data.clone()]);
 
     // when
@@ -42,7 +42,7 @@ fn should_find_by_id() {
 #[test]
 fn should_return_not_found() {
     // given
-    let mut storage: InMemoryStorage<u32, MyData> = InMemoryStorage::new();
+    let storage: InMemoryStorage<u32, MyData> = InMemoryStorage::new();
 
     // when
     let result = storage.find_by_id(&123u32);
@@ -62,7 +62,7 @@ fn should_find_and_paginate() {
         MyData { id: 2, data: 42 },
         MyData { id: 3, data: 42 },
     ];
-    let mut storage = InMemoryStorage::from(&data);
+    let storage = InMemoryStorage::from(&data);
 
     // when
     let result = dbg!(storage
